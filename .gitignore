@@ -1,0 +1,7 @@
+env
+.ipynb_checkpoints
+model_path/
+.gitattributes
+testing/
+__pycache__/
+current_working/
