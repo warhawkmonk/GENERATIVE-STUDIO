@@ -959,9 +959,9 @@ if bg_doc and prompt:
 elif not bg_doc and canvas_result.image_data is not None:
     if prompt:
 
-        text_or_image = consume_llm_api(prompt+"\n If above text is asking for image return True else return False" )
-
-        if "true" in text_or_image.lower() :
+        text_or_image=multimodel_output(prompt)
+        
+        if text_or_image=="LABEL_0" :
         
             if "generated_image_prompt" not in dictionary:
                 dictionary['generated_image_prompt']=[]
