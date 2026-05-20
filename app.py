@@ -51,54 +51,7 @@ st.set_page_config(layout="wide")
 dictionary=st.session_state
 if "toggle" not in dictionary:
     dictionary["toggle"]=False
-def consume_llm_api_conditional(prompt,super_id=None):
-    """
-    Sends a prompt to the LLM API and processes the streamed response.
-    """
-    url = "http://127.0.0.1:6000/api/llm-response"
-    headers = {"Content-Type": "application/json"}
-    payload = {"prompt": prompt,"super_id":super_id}
 
-    try:
-        print("Sending prompt to the LLM API...")
-        with requests.post(url, json=payload, headers=headers, stream=True) as response:
-            response.raise_for_status()
-            print("Response from LLM API:\n")
-            for line in response:
-                yield(line.decode('utf-8'))
-            # print(type(response))
-            # yield(response)
-    except requests.RequestException as e:
-        print(f"Error consuming API: {e}")
-    except Exception as e:
-        print(f"Unexpected error: {e}")
-# def consume_llm_api(prompt):
-    
-#     client = Groq(
-#         api_key="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"
-#     )
-
-#     completion = client.chat.completions.create(
-        
-#         model="llama-3.3-70b-versatile",
-#         messages=[
-
-#             {
-#                 "role": "system",
-#                 "content": prompt
-#             },
-#         ],
-
-#         temperature=1,
-#         # max_completion_tokens=1024,
-#         top_p=1,
-#         stream=True,
-#         stop=None,
-#     )
-
-#     for chunk in completion:
-#         if chunk.choices[0].delta.content:
-#             yield chunk.choices[0].delta.content
 @st.cache_resource
 def encoding_model():
     """
@@ -213,6 +166,7 @@ def send_prompt():
 def image_to_base64(image_path):
     with open(image_path, "rb") as img_file:
         return base64.b64encode(img_file.read()).decode()
+    
 def consume_llm_api_updater(prompt):
     
     client = Groq(
@@ -232,40 +186,25 @@ def consume_llm_api_updater(prompt):
         top_p=1,
 
     )
-    return completion.choices[0].message.content    
+    return completion.choices[0].message.content   
+
 def consume_llm_api(prompt,messages=None):
-    
-    client = Groq(
-        api_key="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"
-    )
-    if messages is not None:
-            messages= messages
-    else:
-        messages=[
+    """
+    Sends a prompt to the LLM API and processes the streamed response.
+    """
+    url = "http://127.0.0.1:6000/api/llm-response"
+    headers = {"Content-Type": "application/json"}
+    payload = {"prompt": prompt}
 
-            {
-                "role": "system",
-                "content": prompt
-            },
-        ]
-    completion = client.chat.completions.create(
+    try:
+        response = requests.post(url, json=payload, headers=headers)
+        result = response.json()
+        return result.get("text", "")
         
-        model="llama-3.3-70b-versatile",
-        messages=messages,
-
-        # temperature=1,
-        # max_completion_tokens=1024,
-        top_p=1,
-        stream=True,
-        # stop=None,
-    )
-    # return completion.choices[0].message.content
-    for chunk in completion:
-        if chunk.choices[0].delta.content:
-            yield chunk.choices[0].delta.content
-# def load_model():
-#     pipeline_ = AutoPipelineForInpainting.from_pretrained("kandinsky-community/kandinsky-2-2-decoder-inpaint", torch_dtype=torch.float16).to("cuda")
-#     return pipeline_
+    except requests.RequestException as e:
+        print(f"Error consuming API: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
 
 @st.cache_resource
 def prompt_improvment(pre_prompt):
@@ -297,17 +236,6 @@ def numpy_to_list(array):
             current.append(int(value))
     return current
 
-
-
-# @st.cache_resource
-# def llm_text_response():
-#     llm = Ollama(model="llama3:latest",num_ctx=1000)
-#     return llm.stream
-
-# def model_single_out(prompt):
-#     pipe=load_model()
-#     image = pipe(prompt).images[0]
-#     return image
 def refer_api(prompt):
 
     init_image = [[1,1,1]*1000]*1000
@@ -331,8 +259,6 @@ def refer_api(prompt):
     output_image = Image.fromarray(output_image)
     # output_image.show()
     return output_image
-
-    
     
 def model_out_put(init_image,mask_image,prompt,negative_prompt):
     if np.array(mask_image).all():
@@ -359,17 +285,6 @@ def model_out_put(init_image,mask_image,prompt,negative_prompt):
     # output_image.show()
     return output_image
 
-# def model_out_put(init_image, mask_image, prompt, negative_prompt):
-#     # Run the inpainting pipeline
-#     pipeline_ = load_model()
-#     image = pipeline_(
-#         prompt=prompt, 
-#         negative_prompt=negative_prompt, 
-#         image=init_image, 
-#         mask_image=mask_image
-#     ).images[0]
-#     return image
-
 @st.cache_resource
 def multimodel():
     pipeline_ = pipeline("text-classification", model = "model_path")
@@ -394,11 +309,9 @@ def d4_to_3d(image):
     return np.array(formatted_array)
     
 
-# st.write(str(os.getcwd()))
-
 screen_width = streamlit_js_eval(label="screen.width",js_expressions='screen.width')
 screen_height = streamlit_js_eval(label="screen.height",js_expressions='screen.height')
-# st.write(screen_height,screen_width)
+
 st.write(screen_width,"screen width",screen_height,"screen height")
 if screen_width<=495:
     st.header("Scroll down to use")
@@ -442,11 +355,7 @@ bg_color = "#eee"
 
 
 column1,column2=st.columns([0.7,0.35])
-# import os
 
-# current_directory = os.getcwd()
-# print("Current Working Directory:", current_directory)
-# st.write(str(current_directory))
 with open("DataBase/datetimeRecords.json","r") as read:
     dateTimeRecord=json.load(read)
 with column2:
@@ -483,16 +392,12 @@ with column2:
                             data_need=""
                             while(len(data_need)==0):
                                 if len(prompts_)==3:
-                                    try:
-                                        
-                                        data_need = st.write_stream(consume_llm_api(prompts_[1]))
-                                    except:
-                                        data_need = st.write_stream(consume_llm_api_conditional(prompts_[1],dictionary["new_id"]))
+                                        data_need = consume_llm_api(prompts_[1])
+                                        st.write(data_need)
                                 else:
-                                    try:
-                                        data_need=st.write_stream(consume_llm_api(prompts_[0]))
-                                    except:
-                                        data_need=st.write_stream(consume_llm_api_conditional(prompts_[0],dictionary["new_id"]))
+                                        data_need = consume_llm_api(prompts_[0])
+                                        st.write(data_need)
+
                                 
                                 
                             dictionary['every_prompt_with_val'][-1]=(prompts_[0],str(data_need))
@@ -988,7 +893,6 @@ with st.spinner('Wait for it...'):
                                 def __init__(self):
                                     self.image_data = gen_image if gen_image else Image.open("ALL_image_formation/image_gen.png")
                             canvas_result = B()
-        # st.rerun()
 
 
 
@@ -1036,18 +940,13 @@ if bg_doc and prompt:
         if isinstance(file_type,type(None)) :
             retrieved_chunks = [(util.cos_sim(match[0],query_embedding),match[-1]) for  match in vector_store]
             retrieved_chunks.sort(reverse=True)
-            # retrieved_chunks = retrieved_chunks[:3]
-            accurate_score= {'score':0 ,"value":""}
-            for select in retrieved_chunks[:3]:
-    
-                result_test = Q_and_A_model()
-                result_test=result_test(prompt, select[-1])
-                if result_test['score']>accurate_score['score']:
-                    accurate_score['score'] = result_test['score']
-                    accurate_score['value'] = select[-1]
+
+            combined_context = ""
+            for select in retrieved_chunks[:2]:
+                combined_context += select[-1] + "\n"
             
-            prompt = "Context: "+ accurate_score['value'] +"\n"+send_prompt()+ "\n"+prompt
-    
+            prompt = "Context: "+ combined_context +"\n"+send_prompt()+ "\n"+prompt
+
             modifiedValue="@working"
             dictionary['every_prompt_with_val'].append((prompt,modifiedValue))
             st.rerun()
@@ -1056,12 +955,13 @@ if bg_doc and prompt:
             new_prompt = run_agent(prompt,file_type)
             dictionary['every_prompt_with_val'].append((prompt,new_prompt,modifiedValue))
             st.rerun()
+
 elif not bg_doc and canvas_result.image_data is not None:
     if prompt:
 
-        text_or_image=multimodel_output(prompt)
-        
-        if text_or_image=="LABEL_0" :
+        text_or_image = consume_llm_api(prompt+"\n If above text is asking for image return True else return False" )
+
+        if "true" in text_or_image.lower() :
         
             if "generated_image_prompt" not in dictionary:
                 dictionary['generated_image_prompt']=[]
@@ -1103,7 +1003,6 @@ elif not bg_doc and canvas_result.image_data is not None:
             modifiedValue="@working"
             dictionary['every_prompt_with_val'].append((prompt,modifiedValue))
             st.rerun()
-            # st.image(modifiedValue,width=300)
     
         
         
