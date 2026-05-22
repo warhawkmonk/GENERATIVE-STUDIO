@@ -74,7 +74,6 @@ def executer(query):
         
         exec(query)
         sys.stdout = sys.__stdout__
-        print(output.getvalue())
         return False
     except Exception as e:
         return f"Error: {str(e)}"
@@ -99,7 +98,6 @@ def run_code_blocks(code_blocks,df,prompt=""):
 
     buffer = io.StringIO()
     coder = str(code_blocks)
-    # print(coder)
     runner_execute=True
     count=0
     while runner_execute:
@@ -192,7 +190,7 @@ def consume_llm_api(prompt,messages=None):
     """
     Sends a prompt to the LLM API and processes the streamed response.
     """
-    url = "http://127.0.0.1:6000/api/llm-response"
+    url = "http://192.168.1.3:6000/api/llm-response"
     headers = {"Content-Type": "application/json"}
     payload = {"prompt": prompt}
 
@@ -240,7 +238,7 @@ def refer_api(prompt):
 
     init_image = [[1,1,1]*1000]*1000
     mask_image = [[True]*1000]*1000
-    API_URL = "http://127.0.0.1:6000/api/llm-response"
+    API_URL = "http://192.168.1.3:6000/api/llm-response"
     initial_image_base64 = numpy_to_list(np.array(init_image))
     mask_image_base64 = numpy_to_list(np.array(mask_image))
     payload = {
@@ -253,7 +251,6 @@ def refer_api(prompt):
     response_ = requests.post(API_URL, json=payload)
     response_data = response_.json()
     output_image_base64 = response_data.get("img", "")
-    print("testing_result",output_image_base64)
     output_image=np.array(output_image_base64,dtype=np.uint8)
 
     output_image = Image.fromarray(output_image)
@@ -265,7 +262,7 @@ def model_out_put(init_image,mask_image,prompt,negative_prompt):
         l,m=np.array(mask_image).shape
         image =refer_api(prompt).resize((l,m))
         return image
-    API_URL = "http://127.0.0.1:6000/api/llm-response"
+    API_URL = "http://192.168.1.3:6000/api/llm-response"
     initial_image_base64 = numpy_to_list(np.array(init_image))
     mask_image_base64 = numpy_to_list(np.array(mask_image))
     payload = {
@@ -276,7 +273,6 @@ def model_out_put(init_image,mask_image,prompt,negative_prompt):
     }
     response_ = requests.post(API_URL, json=payload)
     response_data = response_.json()
-    print("testing_result",response_data)
     output_image_base64 = response_data.get("img", "")
 
     output_image=np.array(output_image_base64,dtype=np.uint8)
@@ -305,7 +301,6 @@ def d4_to_3d(image):
             else:
                 neste_list.append(False)
         formatted_array.append(neste_list)
-    print(np.shape(formatted_array))
     return np.array(formatted_array)
     
 
@@ -710,7 +705,6 @@ with st.spinner('Wait for it...'):
                                 if dictionary['upload_file_name']==str(bg_doc.name):
                                     if len(dictionary['every_prompt_with_val'])!=0 and submitted:
                                         code_new = response.get('text')
-                                        print(code_new,response)
                                         run_code_blocks(code_new,file_type)
                                     elif len(dictionary['every_prompt_with_val'])!=0 :
                                         code_new=extract_python_code(dictionary['every_prompt_with_val'][-1][-1])
