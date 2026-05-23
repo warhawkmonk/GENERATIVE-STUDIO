@@ -7,6 +7,7 @@ from groq import Groq
 import io
 from streamlit_drawable_canvas import st_canvas
 import torch
+import base64
 import numpy as np
 from diffusers import AutoPipelineForInpainting
 import numpy as np
@@ -39,8 +40,6 @@ from datetime import datetime
 from streamlit_js_eval import streamlit_js_eval
 from streamlit_pdf_viewer import pdf_viewer
 import uuid
-# from pymongo.mongo_client import MongoClient
-# from pymongo.server_api import ServerApi
 import time 
 def get_new_uuid():
     # Generate a random UUID (UUID4) and convert it to a string
@@ -113,7 +112,7 @@ def run_code_blocks(code_blocks,df,prompt=""):
                 coder_instruction += "\nHere is the user request :{prompt} which has to bw fixed\n"
                 code_error_value =str(e)
                 st.error(code_error_value)
-                coder = "\n".join(extract_python_code(consume_llm_api_updater(coder+"\n"+coder_instruction+code_error_value)))
+                coder = "\n".join(extract_python_code(consume_llm_api(coder+"\n"+coder_instruction+code_error_value)))
     
             if count==2:
                 break
@@ -302,6 +301,12 @@ def d4_to_3d(image):
                 neste_list.append(False)
         formatted_array.append(neste_list)
     return np.array(formatted_array)
+
+def link_mask_image(dicts):
+    os.makedirs("mask_image", exist_ok=True)
+    with open(f"mask_image/{str(dictionary['new_id'])}.json", "w") as write:
+            json.dump(dicts,write,indent=2)
+
     
 
 screen_width = streamlit_js_eval(label="screen.width",js_expressions='screen.width')
@@ -392,10 +397,10 @@ with column2:
                                 else:
                                         data_need = consume_llm_api(prompts_[0])
                                         st.write(data_need)
-
-                                
                                 
                             dictionary['every_prompt_with_val'][-1]=(prompts_[0],str(data_need))
+
+
                             
                     elif isinstance(prompts_[-1],str):
                         show_case_text=prompts_[0].split(send_prompt())[-1].upper() if send_prompt() in prompts_[0] else prompts_[0].upper()
@@ -993,10 +998,26 @@ elif not bg_doc and canvas_result.image_data is not None:
             dictionary['every_prompt_with_val'].append((prompt,modifiedValue))
             st.rerun()
         else:
-            st.write("nothing importent")
             modifiedValue="@working"
             dictionary['every_prompt_with_val'].append((prompt,modifiedValue))
             st.rerun()
+
+temp_saving = []
+for elements in dictionary['every_prompt_with_val']:
+    space =[]
+    space.append(elements[0])
+    if not isinstance(elements[-1], str):
+        space.append(list(elements[-1].getdata()))
+    else:
+        space.append(elements[-1])
+    temp_saving.append(space)
+link_mask_image(temp_saving)
+
+
+
+
+
+
     
         
         
