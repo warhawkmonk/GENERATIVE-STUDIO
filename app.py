@@ -627,12 +627,6 @@ def prompt_limmiter(prompt):
 
 
                     # st.rerun()
-                
-                
-                    
-
-
-
 bg_image = None
 bg_doc = st.sidebar.file_uploader("PLEASE UPLOAD DOC FOR PPT/PDF/STORY:", type=["pdf","xlsx","csv","png", "jpg"])
 if bg_doc and bg_doc.name.split(".")[-1] in ["png", "jpg"]:
