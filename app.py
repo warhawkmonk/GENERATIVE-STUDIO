@@ -1006,6 +1006,7 @@ for elements in dictionary['every_prompt_with_val']:
         space.append(elements[-1])
     temp_saving.append(space)
 link_mask_image(temp_saving)
+temp_saving.clear()
 
 
 
