@@ -189,7 +189,7 @@ def consume_llm_api(prompt,messages=None):
     """
     Sends a prompt to the LLM API and processes the streamed response.
     """
-    url = "http://192.168.1.3:6000/api/llm-response"
+    url = "http://127.0.0.1:6000/api/llm-response"
     headers = {"Content-Type": "application/json"}
     payload = {"prompt": prompt}
 
@@ -202,6 +202,25 @@ def consume_llm_api(prompt,messages=None):
         print(f"Error consuming API: {e}")
     except Exception as e:
         print(f"Unexpected error: {e}")
+
+def consume_llm_api_context(prompt, memory):
+    """
+    Sends a prompt to the LLM API and processes the streamed response.
+    """
+    url = "http://127.0.0.1:6000/api/llm-response"
+    headers = {"Content-Type": "application/json"}
+    payload = {"prompt": prompt, "generative_studio": memory}
+
+    try:
+        response = requests.post(url, json=payload, headers=headers)
+        result = response.json()
+        return result.get("text", "")
+        
+    except requests.RequestException as e:
+        print(f"Error consuming API: {e}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+    
 
 @st.cache_resource
 def prompt_improvment(pre_prompt):
@@ -237,7 +256,7 @@ def refer_api(prompt):
 
     init_image = [[1,1,1]*1000]*1000
     mask_image = [[True]*1000]*1000
-    API_URL = "http://192.168.1.3:6000/api/llm-response"
+    API_URL = "http://127.0.0.1:6000/api/llm-response"
     initial_image_base64 = numpy_to_list(np.array(init_image))
     mask_image_base64 = numpy_to_list(np.array(mask_image))
     payload = {
@@ -261,7 +280,7 @@ def model_out_put(init_image,mask_image,prompt,negative_prompt):
         l,m=np.array(mask_image).shape
         image =refer_api(prompt).resize((l,m))
         return image
-    API_URL = "http://192.168.1.3:6000/api/llm-response"
+    API_URL = "http://127.0.0.1:6000/api/llm-response"
     initial_image_base64 = numpy_to_list(np.array(init_image))
     mask_image_base64 = numpy_to_list(np.array(mask_image))
     payload = {
@@ -306,8 +325,17 @@ def link_mask_image(dicts):
     os.makedirs("mask_image", exist_ok=True)
     with open(f"mask_image/{str(dictionary['new_id'])}.json", "w") as write:
             json.dump(dicts,write,indent=2)
-
-    
+def session_load(dictionary):
+    temp_saving = []
+    for elements in dictionary['every_prompt_with_val']:
+        space =[]
+        space.append(elements[0])
+        if not isinstance(elements[-1], str):
+            space.append(list(elements[-1].getdata()))
+        else:
+            space.append(elements[-1])
+        temp_saving.append(space)
+    return temp_saving
 
 screen_width = streamlit_js_eval(label="screen.width",js_expressions='screen.width')
 screen_height = streamlit_js_eval(label="screen.height",js_expressions='screen.height')
@@ -392,10 +420,11 @@ with column2:
                             data_need=""
                             while(len(data_need)==0):
                                 if len(prompts_)==3:
-                                        data_need = consume_llm_api(prompts_[1])
+                                         
+                                        data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
                                         st.write(data_need)
                                 else:
-                                        data_need = consume_llm_api(prompts_[0])
+                                        data_need = consume_llm_api_context(prompts_[0],session_load(dictionary))
                                         st.write(data_need)
                                 
                             dictionary['every_prompt_with_val'][-1]=(prompts_[0],str(data_need))
