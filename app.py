@@ -340,7 +340,7 @@ def session_load(dictionary):
 screen_width = streamlit_js_eval(label="screen.width",js_expressions='screen.width')
 screen_height = streamlit_js_eval(label="screen.height",js_expressions='screen.height')
 
-st.write(screen_width,"screen width",screen_height,"screen height")
+# st.write(screen_width,"screen width",screen_height,"screen height")
 if screen_width<=495:
     st.header("Scroll down to use")
 img_selection=None
@@ -552,7 +552,7 @@ def prompt_limmiter(prompt):
 
                     generated_prompt=prompt_improvment(prompt_selection)
                     dictionary['generated_image_prompt'].append(generated_prompt)
-                    st.write_stream(generated_prompt)
+                    st.write(generated_prompt)
 
         else:
 
@@ -690,15 +690,16 @@ with st.spinner('Wait for it...'):
                     st.write("<br>"*3,unsafe_allow_html=True)
                     if bg_doc:
                         canvas_result=None
-                        # st.write(bg_doc.name)
+
                         file_type = file_handler(bg_doc)
                         
                         if isinstance(file_type,type(None)) :
-                            
-                            with open(bg_doc.name, "wb") as f_work:
+                            if not os.path.exists("pdf/"):
+                                os.makedirs("pdf/")
+                            with open("pdf/"+bg_doc.name, "wb") as f_work:
                                 f_work.write(bg_doc.getbuffer())
 
-                            data = process_pdf(bg_doc.name)
+                            data = process_pdf("pdf/"+bg_doc.name)
                             if str(data) not in dictionary['text_embeddings']:
                                 dictionary['text_embeddings']={}
                                 text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=2000)

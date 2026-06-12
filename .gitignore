@@ -5,3 +5,5 @@ model_path/
 testing/
 __pycache__/
 current_working/
+mask_image
+pdf/
