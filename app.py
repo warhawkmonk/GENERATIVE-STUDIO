@@ -11,8 +11,21 @@ import base64
 import numpy as np
 from diffusers import AutoPipelineForInpainting
 import numpy as np
+import logging
+from datetime import datetime
 # from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('app_logs.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # from langchain.schema import Document
 from langchain_core.documents import Document
@@ -47,34 +60,44 @@ def get_new_uuid():
 
 
 st.set_page_config(layout="wide")
+logger.info("=== Streamlit Generative Studio App Started ===")
+logger.info(f"Session started at {datetime.now()}")
 dictionary=st.session_state
 if "toggle" not in dictionary:
     dictionary["toggle"]=False
+    logger.debug("Initializing session toggle to False")
 
 @st.cache_resource
 def encoding_model():
     """
     Initializes and returns a SentenceTransformer model for text encoding.
     """
+    logger.info("Loading SentenceTransformer model for text encoding")
     model_name = "all-MiniLM-L6-v2"
     # model_name = "mixedbread-ai/mxbai-embed-large-v1"
     model = SentenceTransformer(model_name)
+    logger.info("SentenceTransformer model loaded successfully")
     return model
     
 @st.cache_resource
 def Q_and_A_model():
+    logger.info("Loading Q&A model")
     qa_model = pipeline('question-answering', model='CATIE-AQ/QAmembert-large', tokenizer='CATIE-AQ/QAmembert-large')
+    logger.info("Q&A model loaded successfully")
     return qa_model
     
 def executer(query):
+    logger.info(f"Executing code query: {query[:100]}...")
     try:
         output = io.StringIO()
         sys.stdout = output
         
         exec(query)
         sys.stdout = sys.__stdout__
+        logger.info("Code execution successful")
         return False
     except Exception as e:
+        logger.error(f"Error executing code: {str(e)}")
         return f"Error: {str(e)}"
 def dataframe_info(data):
     value= data[:5]
@@ -124,14 +147,23 @@ def file_handler(file):
     Handles file upload and returns the file path.
     """
     file_name = file.name
-    if file_name.split(".")[-1] in ["csv"]:
-        value = pd.read_csv(file)
-        return value
-    elif file_name.split(".")[-1] in ["xlsx"]:
-        value = pd.read_excel(file)
-        return value
-    
-    else:
+    logger.info(f"Processing file upload: {file_name}")
+    try:
+        if file_name.split(".")[-1] in ["csv"]:
+            logger.info(f"Reading CSV file: {file_name}")
+            value = pd.read_csv(file)
+            logger.info(f"CSV file loaded successfully with shape {value.shape}")
+            return value
+        elif file_name.split(".")[-1] in ["xlsx"]:
+            logger.info(f"Reading Excel file: {file_name}")
+            value = pd.read_excel(file)
+            logger.info(f"Excel file loaded successfully with shape {value.shape}")
+            return value
+        else:
+            logger.warning(f"Unsupported file format: {file_name}")
+            return None
+    except Exception as e:
+        logger.error(f"Error handling file {file_name}: {str(e)}")
         return None
 def run_agent(prompt,df):
 
@@ -146,7 +178,6 @@ def run_agent(prompt,df):
     intermediate_steps += "write code using df to manipulate it and give result according to user instruction.\n"
     intermediate_steps += "No need to load the data 'df' is the required variable.\n"
     intermediate_steps += "Whole team told you that you no need to use pd.read data is already there in df.\n"
-    # intermediate_steps += "Statement present in the request willwe generic so consider column name related to sample data , Don't assume until said in request. \n"
     intermediate_steps += "Since we are showing code output in 'streamlit' not in terminal so code it properly as per streamlit need. \n"
     intermediate_steps += "This is last warning as a ceo of the company, you have to return only required code as per user request.\n"
     intermediate_steps += "Example\n" 
@@ -165,48 +196,59 @@ def image_to_base64(image_path):
         return base64.b64encode(img_file.read()).decode()
     
 def consume_llm_api_updater(prompt):
-    
-    client = Groq(
-        api_key="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"
-    )
+    logger.info("Calling Groq LLM API with llama-3.3-70b-versatile model")
+    try:
+        client = Groq(
+            api_key="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"
+        )
 
-    completion = client.chat.completions.create(
-        
-        model="llama-3.3-70b-versatile",
-        messages=[
+        completion = client.chat.completions.create(
+            
+            model="llama-3.3-70b-versatile",
+            messages=[
 
-            {
-                "role": "system",
-                "content": prompt
-            },
-        ],
-        top_p=1,
+                {
+                    "role": "system",
+                    "content": prompt
+                },
+            ],
+            top_p=1,
 
-    )
-    return completion.choices[0].message.content   
-
+        )
+        logger.info("Groq API call successful")
+        return completion.choices[0].message.content
+    except Exception as e:
+        logger.error(f"Error calling Groq API: {str(e)}")
+        raise   
+def prompt_understanding(prompt):
+    prompt_check = '''Prompt: {prompt}
+    Return only "true" if the user is requesting image understanding; otherwise return only "false".'''
+    return consume_llm_api(prompt_check.format(prompt=prompt))
 def consume_llm_api(prompt,messages=None):
     """
     Sends a prompt to the LLM API and processes the streamed response.
     """
+    logger.info("Calling local LLM API at http://127.0.0.1:6000/api/llm-response")
     url = "http://127.0.0.1:6000/api/llm-response"
     headers = {"Content-Type": "application/json"}
-    payload = {"prompt": prompt}
+    payload = {"prompt": prompt,"extension":"hi"}
 
     try:
         response = requests.post(url, json=payload, headers=headers)
         result = response.json()
+        logger.info("Local LLM API call successful")
         return result.get("text", "")
         
     except requests.RequestException as e:
-        print(f"Error consuming API: {e}")
+        logger.error(f"RequestException consuming API: {e}")
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        logger.error(f"Unexpected error in consume_llm_api: {e}")
 
 def consume_llm_api_context(prompt, memory):
     """
     Sends a prompt to the LLM API and processes the streamed response.
     """
+    logger.info("Calling local LLM API with context memory")
     url = "http://127.0.0.1:6000/api/llm-response"
     headers = {"Content-Type": "application/json"}
     payload = {"prompt": prompt, "generative_studio": memory}
@@ -214,12 +256,13 @@ def consume_llm_api_context(prompt, memory):
     try:
         response = requests.post(url, json=payload, headers=headers)
         result = response.json()
+        logger.info("Local LLM API with context call successful")
         return result.get("text", "")
         
     except requests.RequestException as e:
-        print(f"Error consuming API: {e}")
+        logger.error(f"RequestException in consume_llm_api_context: {e}")
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        logger.error(f"Unexpected error in consume_llm_api_context: {e}")
     
 
 @st.cache_resource
@@ -231,13 +274,21 @@ def prompt_improvment(pre_prompt):
     return consume_llm_api(prompt)
 
 def process_pdf(file):
+    logger.info(f"Processing PDF file: {file}")
     documents = []
-    with open(file, "rb") as f:
-        reader = PyPDF2.PdfReader(f)
-        for page in reader.pages:
-            text = page.extract_text()
-            if text:  # Ensure that the page has text
-                documents.append(Document(page_content=text))
+    try:
+        with open(file, "rb") as f:
+            reader = PyPDF2.PdfReader(f)
+            page_count = len(reader.pages)
+            logger.info(f"PDF has {page_count} pages")
+            for page_num, page in enumerate(reader.pages, 1):
+                text = page.extract_text()
+                if text:  # Ensure that the page has text
+                    documents.append(Document(page_content=text))
+                    logger.debug(f"Extracted text from page {page_num}")
+        logger.info(f"PDF processing complete. Extracted {len(documents)} text documents")
+    except Exception as e:
+        logger.error(f"Error processing PDF {file}: {str(e)}")
     return documents
     
 def numpy_to_list(array):
@@ -308,6 +359,70 @@ def multimodel_output(prompt):
     pipeline_ = multimodel()
     image = pipeline_(prompt)
     return image[0]['label']
+import base64
+
+def pil_image_to_base64(image, format="JPEG"):
+    """
+    Convert a PIL Image object to Base64 string.
+    
+    Args:
+        image: PIL Image object, file path, or numpy array/list
+        format: Image format to save as (JPEG, PNG, etc.)
+    
+    Returns:
+        Base64 encoded string
+    """
+    # Handle different input types
+    if isinstance(image, str):
+        image = Image.open(image)
+    elif isinstance(image, (list, np.ndarray)):
+        # Convert list/numpy array back to PIL Image
+        image = Image.fromarray(np.array(image, dtype=np.uint8))
+    
+    # Convert RGBA to RGB if saving as JPEG (JPEG doesn't support transparency)
+    if format.upper() == "JPEG" and image.mode == "RGBA":
+        rgb_image = Image.new("RGB", image.size, (255, 255, 255))
+        rgb_image.paste(image, mask=image.split()[3])  # Use alpha channel as mask
+        image = rgb_image
+    elif format.upper() == "JPEG" and image.mode != "RGB":
+        # Convert any non-RGB mode to RGB for JPEG
+        image = image.convert("RGB")
+    
+    buffered = BytesIO()
+    image.save(buffered, format=format)
+    base64_string = base64.b64encode(buffered.getvalue()).decode('utf-8')
+    
+    return base64_string
+def image_understanding_result(memory,prompt,uploaded=None):
+
+    url = "http://127.0.0.1:6000/api/llm-response"
+    headers = {"Content-Type": "application/json"}
+    if uploaded :
+        base64_str = pil_image_to_base64(uploaded, format="JPEG")
+        logger.debug(f"Base64 image converted successfully")
+        payload = {"prompt": prompt, "image_understanding": memory,"image_b64":base64_str}
+    else:
+        payload = {"prompt": prompt, "image_understanding": memory}
+
+    try:
+        response = requests.post(url, json=payload, headers=headers)
+        result = response.json()
+        logger.info("Local LLM API with image understanding call successful")
+        return result.get("text", "")
+        
+    except requests.RequestException as e:
+        logger.error(f"RequestException in image_understanding_result: {e}")
+        return ""
+    except Exception as e:
+        logger.error(f"Unexpected error in image_understanding_result: {e}")
+        return ""
+       
+    
+
+
+    # return "Its working"
+
+
 
 def d4_to_3d(image):
     formatted_array=[]
@@ -322,9 +437,14 @@ def d4_to_3d(image):
     return np.array(formatted_array)
 
 def link_mask_image(dicts):
-    os.makedirs("mask_image", exist_ok=True)
-    with open(f"mask_image/{str(dictionary['new_id'])}.json", "w") as write:
-            json.dump(dicts,write,indent=2)
+    logger.info(f"Saving mask image data with ID: {dictionary['new_id']}")
+    try:
+        os.makedirs("mask_image", exist_ok=True)
+        with open(f"mask_image/{str(dictionary['new_id'])}.json", "w") as write:
+                json.dump(dicts,write,indent=2)
+        logger.info(f"Mask image saved successfully")
+    except Exception as e:
+        logger.error(f"Error saving mask image: {str(e)}")
 def session_load(dictionary):
     temp_saving = []
     for elements in dictionary['every_prompt_with_val']:
@@ -369,6 +489,10 @@ if "text_embeddings" not in dictionary:
 if "rerun" not in dictionary:
     dictionary['rerun']="good"
     st.rerun()
+
+if "uploaded_image" not in dictionary:
+    dictionary['uploaded_image'] =None
+
 if "upload_file_name" not in dictionary:
     dictionary['upload_file_name'] = "no file"
 if "new_id" not in dictionary:
@@ -388,10 +512,8 @@ with open("DataBase/datetimeRecords.json","r") as read:
     dateTimeRecord=json.load(read)
 with column2:
     st.header("HISTORY")
-    tab1,tab5,tab2,tab4=st.tabs(["CHAT HISTORY","FREE API","PROMPT IMPROVEMENT","LOGIN"])
+    tab1,tab4=st.tabs(["CHAT HISTORY","LOGIN"])
     with tab1:
-
-        
  
         if not len(dictionary['every_prompt_with_val']):
             st.header("I will store all the chat for the current session")
@@ -404,15 +526,6 @@ with column2:
 
 
                 for index,prompts_ in enumerate(dictionary['every_prompt_with_val'][::-1]):
-                    # messages = []
-
-                    # for i_ in dictionary['every_prompt_with_val']:
-                    #     if "@working" in i_[-1]:
-                    #         messages.append({"role":"user","content":i_[0]})
-                    #         # messages.append({"role":"assistant","content":dictionary['every_prompt_with_val'][i_][1]})
-                    #     else:
-                    #         messages.append({"role":"user","content":i_[0]})
-                    #         messages.append({"role":"assistant","content":i_[1]})
 
                     if prompts_[-1]=="@working":
                         if index==0:
@@ -420,12 +533,26 @@ with column2:
                             data_need=""
                             while(len(data_need)==0):
                                 if len(prompts_)==3:
-                                         
+                                    logger.info("Consuming LLM API context for prompt with 3 components")
+                                    image_understanding = prompt_understanding(prompts_[1])
+                                    if "true" in image_understanding.lower():
+                                        print("loru",image_understanding)
+                                        data_need = image_understanding_result(session_load(dictionary),prompts_[1],dictionary['uploaded_image'])
+
+                                        # data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
+                                    else:
                                         data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
-                                        st.write(data_need)
+                                    st.write(data_need)
                                 else:
+                                    logger.info("Consuming LLM API context for prompt with 2 components")
+                                
+                                    image_understanding = prompt_understanding(prompts_[0])
+                                    if "true" in image_understanding.lower():
+
+                                        data_need = image_understanding_result(session_load(dictionary),prompts_[0],dictionary['uploaded_image'])
+                                    else:
                                         data_need = consume_llm_api_context(prompts_[0],session_load(dictionary))
-                                        st.write(data_need)
+                                    st.write(data_need)
                                 
                             dictionary['every_prompt_with_val'][-1]=(prompts_[0],str(data_need))
 
@@ -466,56 +593,6 @@ with column2:
                                 image.putalpha(mask)
                                 st.image(image)
 
-    with tab5:
-        st.write("ADD PINECONE API KEY TO GET FREE LLM API")
-        random_val = """
-def prompt_limmiter(prompt):
-
-    import requests
-    from sentence_transformers import SentenceTransformer
-    from pinecone import Pinecone, ServerlessSpec
-    Gen_api = "https://cb82b3240dd2.ngrok-free.app/api/llm-response"
-    api_key = "xxxxxxxxxxxxxxxxxxxxxx----pine cone api key---xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    pc = Pinecone(api_key=api_key)
-    model = SentenceTransformer("all-mpnet-base-v2")
-    try:
-        index_name = "quickstart"
-        pc.create_index(
-            name=index_name,
-            dimension=768, 
-            metric="cosine", 
-            spec=ServerlessSpec(
-                cloud="aws",
-                region="us-east-1"
-            ) 
-        )
-    except:
-        pass
-    index = pc.Index(index_name)
-    index.upsert(
-        vectors=[
-            {
-                "id": "lorum", 
-                "values": [float(i) for i in list(model.encode("lorum"))],  
-                "metadata": {"string":str(prompt)}
-                
-            }
-        ]
-    )
-
-    gen_api_response = requests.post(url = Gen_api,json={"api_key": api_key},verify=False)
-
-    if gen_api_response.json().get("status"):
-        response = index.query(
-        vector=[float(i) for i in model.encode(str(prompt))],
-        top_k=1,
-        include_metadata=True,
-    )
-        
-    return response['matches'][0]['metadata']['string']
-"""
-        with st.container(height=int(screen_height//1.8)):
-            st.code(random_val,language="python")
     with st.sidebar:
         
         if "current_image" in dictionary and len(dictionary['current_image']):
@@ -543,75 +620,63 @@ def prompt_limmiter(prompt):
             with open("lotte_animation_saver/animation_1.json") as read:
                 url_json=json.load(read)
             st_lottie(url_json,height = 200)
-    with tab2:
-        if len(dictionary['prompt_collection'])!=0:
-            with st.container(height=600):
-                prompt_selection=st.selectbox(label="Select the prompt for improvment",options=["Mention below are prompt history"]+dictionary["prompt_collection"],index=0)
+    
+    with tab4:
+        if not dictionary['user']   : 
+            with st.form("my_form"):
+                with open("lotte_animation_saver/animation_5.json") as read:
+                    url_json=json.load(read)
+                st_lottie(url_json,height = 200)                
+                user_id = st.text_input("user login")
+                password = st.text_input("password",type="password")
+                submitted_login = st.form_submit_button("Submit")
 
-                if prompt_selection!="Mention below are prompt history":
 
-                    generated_prompt=prompt_improvment(prompt_selection)
-                    dictionary['generated_image_prompt'].append(generated_prompt)
-                    st.write(generated_prompt)
-
-        else:
-
-            st.header("This section will provide prompt improvement section")
-            with open("lotte_animation_saver/animation_3.json") as read:
-                url_json=json.load(read)
-            st_lottie(url_json,height = 400)
-        with tab4:
-            
-            # with st.container(height=600):
-
-            if not dictionary['user']   : 
-                with st.form("my_form"):
-                    # st.header("Please login for save your data")
-                    with open("lotte_animation_saver/animation_5.json") as read:
-                        url_json=json.load(read)
-                    st_lottie(url_json,height = 200)                
-                    user_id = st.text_input("user login")
-                    password = st.text_input("password",type="password")
-                    submitted_login = st.form_submit_button("Submit")
-                    # Every form must have a submit button.
-
-                    if submitted_login:
+                if submitted_login:
+                    logger.info(f"Login attempt for user: {user_id}")
+                    try:
                         with open("DataBase/login.json","r") as read:
                             login_base=json.load(read)
                         if user_id in login_base and login_base[user_id]==password:
                             dictionary['user']=user_id
+                            logger.info(f"User {user_id} logged in successfully")
                             st.rerun()
                         else:
+                            logger.warning(f"Failed login attempt for user: {user_id}")
                             st.error("userid or password incorrect")
+                    except Exception as e:
+                        logger.error(f"Error during login: {str(e)}")
 
-                        st.write("working")
-                    modal = Modal(
-                        "Sign up", 
-                        key="demo-modal",
-                        
-                        padding=10,    # default value
-                        max_width=600  # default value
-                    )
-                open_modal = st.button("sign up")
-                if open_modal:
-                    modal.open()
+                    st.write("working")
+                modal = Modal(
+                    "Sign up", 
+                    key="demo-modal",
+                    
+                    padding=10,    # default value
+                    max_width=600  # default value
+                )
+            open_modal = st.button("sign up")
+            if open_modal:
+                modal.open()
 
-                if modal.is_open():
-                    with modal.container():
+            if modal.is_open():
+                with modal.container():
 
-                        with st.form("my_form1"):
-                            sign_up_column_left,sign_up_column_right=st.columns(2)
-                            with sign_up_column_left:
-                                with open("lotte_animation_saver/animation_6.json") as read:
-                                    url_json=json.load(read)
-                                st_lottie(url_json,height = 200) 
-    
-                            with sign_up_column_right:
-                                user_id = st.text_input("user login")
-                                password = st.text_input("password",type="password")
-                                submitted_signup = st.form_submit_button("Submit")
+                    with st.form("my_form1"):
+                        sign_up_column_left,sign_up_column_right=st.columns(2)
+                        with sign_up_column_left:
+                            with open("lotte_animation_saver/animation_6.json") as read:
+                                url_json=json.load(read)
+                            st_lottie(url_json,height = 200) 
 
-                            if submitted_signup:
+                        with sign_up_column_right:
+                            user_id = st.text_input("user login")
+                            password = st.text_input("password",type="password")
+                            submitted_signup = st.form_submit_button("Submit")
+
+                        if submitted_signup:
+                            logger.info(f"Sign up attempt for user: {user_id}")
+                            try:
                                 with open("DataBase/login.json","r") as read:
                                     login_base=json.load(read)
                                 if not login_base:
@@ -620,46 +685,59 @@ def prompt_limmiter(prompt):
                                     login_base[user_id]=password
                                     with open("DataBase/login.json","w") as write:
                                         json.dump(login_base,write,indent=2)  
+                                    logger.info(f"User {user_id} registered successfully")
                                     st.success("you are a part now")  
                                     dictionary['user']=user_id
                                     modal.close()                       
                                 else:
+                                    logger.warning(f"Sign up failed: user {user_id} already exists")
                                     st.error("user id already exists")
-            else:
-                st.header("REPORTED ISSUES")
-                with st.container(height=370):
+                            except Exception as e:
+                                logger.error(f"Error during sign up: {str(e)}")
+        else:
+            st.header("REPORTED ISSUES")
+            with st.container(height=370):
 
-                    with open("DataBase/datetimeRecords.json") as feedback:
-                        temp_issue=json.load(feedback)
+                with open("DataBase/datetimeRecords.json") as feedback:
+                    temp_issue=json.load(feedback)
 
-                    arranged_feedback=reversed(temp_issue['database'])
+                arranged_feedback=reversed(temp_issue['database'])
+                
+                for report in arranged_feedback:
+                    user_columns,user_feedback=st.columns([0.3,0.8])
+
+                    with user_columns:
+                        st.write(report[-1])
+                    with user_feedback:
+                        st.write(report[1])
                     
-                    for report in arranged_feedback:
-                        user_columns,user_feedback=st.columns([0.3,0.8])
-
-                        with user_columns:
-                            st.write(report[-1])
-                        with user_feedback:
-                            st.write(report[1])
-                     
-                feedback=st.text_area("Feedback Report and Improvement",placeholder="")
-                summit=st.button("submit")
-                if summit:
+            feedback=st.text_area("Feedback Report and Improvement",placeholder="")
+            summit=st.button("submit")
+            if summit:
+                logger.info(f"Feedback submitted by user: {dictionary['user']}")
+                try:
                     with open("DataBase/datetimeRecords.json","r") as feedback_sumit:
                         temp_issue_submit=json.load(feedback_sumit)        
                     if  "database" not in temp_issue_submit:
                         temp_issue_submit["database"]=[]
                     temp_issue_submit["database"].append((str(datetime.now()),feedback,dictionary['user'])) 
                     with open("DataBase/datetimeRecords.json","w") as feedback_sumit:
-                        json.dump(temp_issue_submit,feedback_sumit)                    
+                        json.dump(temp_issue_submit,feedback_sumit)
+                    logger.info(f"Feedback saved successfully")
+                except Exception as e:
+                    logger.error(f"Error saving feedback: {str(e)}")                    
                             
 
 
                     # st.rerun()
 bg_image = None
 bg_doc = st.sidebar.file_uploader("PLEASE UPLOAD DOC FOR PPT/PDF/STORY:", type=["pdf","xlsx","csv","png", "jpg"])
+
+
+
 if bg_doc and bg_doc.name.split(".")[-1] in ["png", "jpg"]:
     bg_image = bg_doc
+    dictionary['uploaded_image'] =numpy_to_list(np.array(Image.open(bg_image) ))
     bg_doc=None
 
 
@@ -686,7 +764,7 @@ with st.spinner('Wait for it...'):
         model = encoding_model()
         with implementation:
             with st.spinner('Wait for it...'):
-                    # pdf_file = st.file_uploader("Upload PDF file", type=('pdf'))
+          
                     st.write("<br>"*3,unsafe_allow_html=True)
                     if bg_doc:
                         canvas_result=None
@@ -958,31 +1036,40 @@ if bg_doc:
                             st.image(pix,use_column_width=True)
                         
 if bg_doc and prompt:
+    logger.info(f"Processing prompt with document: {prompt[:100]}...")
     with st.spinner('Wait for it...'):  
-        query_embedding = model.encode([prompt])
-        if isinstance(file_type,type(None)) :
-            retrieved_chunks = [(util.cos_sim(match[0],query_embedding),match[-1]) for  match in vector_store]
-            retrieved_chunks.sort(reverse=True)
+        try:
+            query_embedding = model.encode([prompt])
+            if isinstance(file_type,type(None)) :
+                logger.info("Processing PDF with retrieval-augmented generation")
+                retrieved_chunks = [(util.cos_sim(match[0],query_embedding),match[-1]) for  match in vector_store]
+                retrieved_chunks.sort(reverse=True)
 
-            combined_context = ""
-            for select in retrieved_chunks[:2]:
-                combined_context += select[-1] + "\n"
-            
-            prompt = "Context: "+ combined_context +"\n"+send_prompt()+ "\n"+prompt
+                combined_context = ""
+                for select in retrieved_chunks[:1]:
+                    combined_context += select[-1] + "\n"
+                
+                prompt = "Context: "+ combined_context +"\n"+send_prompt()+ "\n"+prompt
 
-            modifiedValue="@working"
-            dictionary['every_prompt_with_val'].append((prompt,modifiedValue))
-            st.rerun()
-        else:
-            modifiedValue="@working"
-            new_prompt = run_agent(prompt,file_type)
-            dictionary['every_prompt_with_val'].append((prompt,new_prompt,modifiedValue))
-            st.rerun()
+                modifiedValue="@working"
+                dictionary['every_prompt_with_val'].append((prompt,modifiedValue))
+                logger.info("Prompt added to history, triggering rerun")
+                st.rerun()
+            else:
+                logger.info("Processing CSV/Excel file with data analysis agent")
+                modifiedValue="@working"
+                new_prompt = run_agent(prompt,file_type)
+                dictionary['every_prompt_with_val'].append((prompt,new_prompt,modifiedValue))
+                logger.info("Data analysis prompt added to history, triggering rerun")
+                st.rerun()
+        except Exception as e:
+            logger.error(f"Error processing prompt with document: {str(e)}")
 
 elif not bg_doc and canvas_result.image_data is not None:
     if prompt:
-
+        logger.info(f"Processing image generation prompt: {prompt[:100]}...")
         text_or_image=multimodel_output(prompt)
+        logger.info(f"Model output classification: {text_or_image}")
         
         if text_or_image=="LABEL_0" :
         
@@ -1017,7 +1104,7 @@ elif not bg_doc and canvas_result.image_data is not None:
                 negative_image=Image.fromarray(negative_image)
             
             modifiedValue=model_out_put(imf,negative_image,prompt,negative_prompt)
-            # modifiedValue.save("ALL_image_formation/current_session_image.png")
+            
             dictionary['current_image']=[modifiedValue]+dictionary['current_image']
             dictionary['every_prompt_with_val'].append((prompt,modifiedValue))
             st.rerun()
