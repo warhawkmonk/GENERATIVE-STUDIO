@@ -402,7 +402,7 @@ def image_understanding_result(memory,prompt,uploaded=None):
         logger.debug(f"Base64 image converted successfully")
         payload = {"prompt": prompt, "image_understanding": memory,"image_b64":base64_str}
     else:
-        payload = {"prompt": prompt, "image_understanding": memory}
+        return "Please upload the image in the side bar to understand no image seems to be uploaded"
 
     try:
         response = requests.post(url, json=payload, headers=headers)
@@ -536,10 +536,8 @@ with column2:
                                     logger.info("Consuming LLM API context for prompt with 3 components")
                                     image_understanding = prompt_understanding(prompts_[1])
                                     if "true" in image_understanding.lower():
-                                        print("loru",image_understanding)
-                                        data_need = image_understanding_result(session_load(dictionary),prompts_[1],dictionary['uploaded_image'])
 
-                                        # data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
+                                        data_need = image_understanding_result(session_load(dictionary),prompts_[1],dictionary['uploaded_image'])
                                     else:
                                         data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
                                     st.write(data_need)
