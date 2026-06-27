@@ -533,24 +533,27 @@ with column2:
                             data_need=""
                             while(len(data_need)==0):
                                 if len(prompts_)==3:
-                                    logger.info("Consuming LLM API context for prompt with 3 components")
-                                    image_understanding = prompt_understanding(prompts_[1])
-                                    if "true" in image_understanding.lower():
+                                    with st.spinner("Wait for it..."):
+                                        logger.info("Consuming LLM API context for prompt with 3 components")
+                                        
+                                        image_understanding = prompt_understanding(prompts_[1])
+                                        if "true" in image_understanding.lower():
 
-                                        data_need = image_understanding_result(session_load(dictionary),prompts_[1],dictionary['uploaded_image'])
-                                    else:
-                                        data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
-                                    st.write(data_need)
+                                            data_need = image_understanding_result(session_load(dictionary),prompts_[1],dictionary['uploaded_image'])
+                                        else:
+                                            data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
+                                        st.write(data_need)
                                 else:
-                                    logger.info("Consuming LLM API context for prompt with 2 components")
-                                
-                                    image_understanding = prompt_understanding(prompts_[0])
-                                    if "true" in image_understanding.lower():
+                                    with st.spinner("Wait for it..."):
+                                        logger.info("Consuming LLM API context for prompt with 2 components")
+                                    
+                                        image_understanding = prompt_understanding(prompts_[0])
+                                        if "true" in image_understanding.lower():
 
-                                        data_need = image_understanding_result(session_load(dictionary),prompts_[0],dictionary['uploaded_image'])
-                                    else:
-                                        data_need = consume_llm_api_context(prompts_[0],session_load(dictionary))
-                                    st.write(data_need)
+                                            data_need = image_understanding_result(session_load(dictionary),prompts_[0],dictionary['uploaded_image'])
+                                        else:
+                                            data_need = consume_llm_api_context(prompts_[0],session_load(dictionary))
+                                        st.write(data_need)
                                 
                             dictionary['every_prompt_with_val'][-1]=(prompts_[0],str(data_need))
 
