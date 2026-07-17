@@ -1,6 +1,7 @@
 import os
 import urllib.request
-from flask import Flask, jsonify, render_template_string
+import requests
+from flask import Flask, jsonify, render_template_string, request
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STREAMLIT_HOST = os.environ.get("STREAMLIT_HOST", "127.0.0.1")
@@ -42,9 +43,25 @@ def health():
     return jsonify({"status": "ok", "streamlit": STREAMLIT_URL})
 
 
-@app.get("/health")
-def health():
-    return jsonify({"status": "ok", "streamlit": STREAMLIT_URL})
+@app.post("/generate-text")
+def generate_text():
+    data = request.get_json(silent=True) or {}
+    prompt = (data.get("prompt") or "").strip()
+
+    if not prompt:
+        return jsonify({"error": "prompt is required"}), 400
+
+    try:
+        response = requests.post(
+            "http://127.0.0.1:6000/api/llm-response",
+            json={"prompt": prompt, "extension": "hi"},
+            timeout=60,
+        )
+        response.raise_for_status()
+        result = response.json()
+        return jsonify({"text": result.get("text", ""), "status": "success"})
+    except Exception as exc:
+        return jsonify({"error": str(exc)}), 500
 
 
 if __name__ == "__main__":
