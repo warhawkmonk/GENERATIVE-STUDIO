@@ -1,0 +1,819 @@
+2026-07-11 07:39:55,885 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:39:55,886 - __main__ - INFO - Session started at 2026-07-11 07:39:55.886183
+2026-07-11 07:40:02,281 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:40:02,281 - __main__ - INFO - Session started at 2026-07-11 07:40:02.281570
+2026-07-11 07:40:03,134 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:40:03,135 - __main__ - INFO - Session started at 2026-07-11 07:40:03.135346
+2026-07-11 07:40:03,393 - __main__ - INFO - Loading SentenceTransformer model for text encoding
+2026-07-11 07:40:03,398 - sentence_transformers.base.model - INFO - No device provided, using cuda:0
+2026-07-11 07:40:04,397 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:04,430 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:04,728 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:04,729 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-11 07:40:04,761 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:04,782 - sentence_transformers.base.model - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-11 07:40:05,043 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:05,075 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:05,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:05,371 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-07-11 07:40:05,668 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:05,699 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:05,981 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:06,012 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:06,303 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 07:40:06,578 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:06,612 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:07,102 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 07:40:07,368 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 07:40:07,638 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 07:40:07,904 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 07:40:08,168 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:08,200 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:08,480 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:08,511 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:08,776 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:08,810 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:09,079 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:09,111 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:09,383 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-11 07:40:09,692 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-11 07:40:10,077 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 07:40:10,110 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-11 07:40:10,397 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-07-11 07:40:12,313 - __main__ - INFO - SentenceTransformer model loaded successfully
+2026-07-11 07:40:12,453 - __main__ - INFO - Saving mask image data with ID: 449e1293-f1e6-41de-b8b8-5f62dae1761b
+2026-07-11 07:40:12,456 - __main__ - INFO - Mask image saved successfully
+2026-07-11 07:42:17,360 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:42:17,361 - __main__ - INFO - Session started at 2026-07-11 07:42:17.361365
+2026-07-11 07:42:17,443 - __main__ - INFO - Processing image generation prompt: hi...
+2026-07-11 07:42:23,863 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-11 07:42:24,288 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:42:24,288 - __main__ - INFO - Session started at 2026-07-11 07:42:24.288838
+2026-07-11 07:42:24,305 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-11 07:42:24,306 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-11 07:42:32,500 - __main__ - INFO - Local LLM API call successful
+2026-07-11 07:42:32,500 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-11 07:42:37,327 - __main__ - INFO - Local LLM API with context call successful
+2026-07-11 07:42:37,393 - __main__ - INFO - Saving mask image data with ID: 449e1293-f1e6-41de-b8b8-5f62dae1761b
+2026-07-11 07:42:37,395 - __main__ - INFO - Mask image saved successfully
+2026-07-11 07:45:05,370 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:45:05,371 - __main__ - INFO - Session started at 2026-07-11 07:45:05.371181
+2026-07-11 07:45:05,576 - __main__ - INFO - Processing image generation prompt: calculate token generation speed...
+2026-07-11 07:45:07,195 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-11 07:45:07,573 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:45:07,573 - __main__ - INFO - Session started at 2026-07-11 07:45:07.573832
+2026-07-11 07:45:07,588 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-11 07:45:07,589 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-11 07:45:17,081 - __main__ - INFO - Local LLM API call successful
+2026-07-11 07:45:17,082 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-11 07:46:41,375 - __main__ - INFO - Local LLM API with context call successful
+2026-07-11 07:46:41,591 - __main__ - INFO - Saving mask image data with ID: 449e1293-f1e6-41de-b8b8-5f62dae1761b
+2026-07-11 07:46:41,595 - __main__ - INFO - Mask image saved successfully
+2026-07-11 07:47:01,723 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:47:01,724 - __main__ - INFO - Session started at 2026-07-11 07:47:01.724154
+2026-07-11 07:47:01,915 - __main__ - INFO - Processing image generation prompt: you can write code and check...
+2026-07-11 07:47:03,547 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-11 07:47:03,931 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:47:03,932 - __main__ - INFO - Session started at 2026-07-11 07:47:03.932276
+2026-07-11 07:47:03,949 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-11 07:47:03,949 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-11 07:47:19,685 - __main__ - INFO - Local LLM API call successful
+2026-07-11 07:47:19,686 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-11 07:47:57,035 - __main__ - INFO - Local LLM API with context call successful
+2026-07-11 07:47:57,218 - __main__ - INFO - Saving mask image data with ID: 449e1293-f1e6-41de-b8b8-5f62dae1761b
+2026-07-11 07:47:57,221 - __main__ - INFO - Mask image saved successfully
+2026-07-11 07:48:47,279 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:48:47,279 - __main__ - INFO - Session started at 2026-07-11 07:48:47.279866
+2026-07-11 07:48:47,503 - __main__ - INFO - Processing image generation prompt: no use it for your text generation function...
+2026-07-11 07:48:49,140 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-11 07:48:49,610 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 07:48:49,611 - __main__ - INFO - Session started at 2026-07-11 07:48:49.611498
+2026-07-11 07:48:49,635 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-11 07:48:49,636 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-11 07:49:00,207 - __main__ - INFO - Local LLM API call successful
+2026-07-11 07:49:00,207 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-11 07:51:54,228 - __main__ - INFO - Local LLM API with context call successful
+2026-07-11 07:51:54,232 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-11 07:51:54,232 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-11 07:52:05,839 - __main__ - INFO - Local LLM API call successful
+2026-07-11 07:52:05,839 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-11 07:54:05,681 - __main__ - INFO - Local LLM API with context call successful
+2026-07-11 07:54:05,916 - __main__ - INFO - Saving mask image data with ID: 449e1293-f1e6-41de-b8b8-5f62dae1761b
+2026-07-11 07:54:05,919 - __main__ - INFO - Mask image saved successfully
+2026-07-11 23:58:02,496 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 23:58:02,498 - __main__ - INFO - Session started at 2026-07-11 23:58:02.498245
+2026-07-11 23:58:05,658 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 23:58:05,658 - __main__ - INFO - Session started at 2026-07-11 23:58:05.658904
+2026-07-11 23:58:06,022 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 23:58:06,023 - __main__ - INFO - Session started at 2026-07-11 23:58:06.023273
+2026-07-11 23:58:06,177 - __main__ - INFO - Loading SentenceTransformer model for text encoding
+2026-07-11 23:58:06,179 - sentence_transformers.base.model - INFO - No device provided, using cuda:0
+2026-07-11 23:58:06,807 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:06,847 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:07,136 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:07,175 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:07,184 - sentence_transformers.base.model - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-11 23:58:07,445 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:07,480 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:07,751 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:07,751 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-11 23:58:07,787 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-07-11 23:58:08,076 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:08,110 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:08,382 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:08,417 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:08,698 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 23:58:08,970 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:09,015 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:09,396 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 23:58:09,670 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 23:58:09,948 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 23:58:10,215 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-11 23:58:10,474 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:10,514 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:10,816 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:10,887 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:11,183 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:11,225 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:11,503 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:11,535 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:11,827 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-11 23:58:12,161 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-11 23:58:12,566 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-11 23:58:12,613 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-11 23:58:12,899 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-07-11 23:58:13,262 - __main__ - INFO - SentenceTransformer model loaded successfully
+2026-07-11 23:58:13,371 - __main__ - INFO - Saving mask image data with ID: 7e5a0f71-7e5a-4461-a3c5-ae81d0f1bd1b
+2026-07-11 23:58:13,373 - __main__ - INFO - Mask image saved successfully
+2026-07-11 23:59:24,812 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 23:59:24,812 - __main__ - INFO - Session started at 2026-07-11 23:59:24.812747
+2026-07-11 23:59:24,862 - __main__ - INFO - Processing image generation prompt: hi...
+2026-07-11 23:59:27,330 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-11 23:59:27,685 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-11 23:59:27,685 - __main__ - INFO - Session started at 2026-07-11 23:59:27.685948
+2026-07-11 23:59:27,694 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-11 23:59:27,694 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-11 23:59:41,346 - __main__ - INFO - Local LLM API call successful
+2026-07-11 23:59:41,346 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-11 23:59:53,103 - __main__ - INFO - Local LLM API with context call successful
+2026-07-11 23:59:53,130 - __main__ - INFO - Saving mask image data with ID: 7e5a0f71-7e5a-4461-a3c5-ae81d0f1bd1b
+2026-07-11 23:59:53,131 - __main__ - INFO - Mask image saved successfully
+2026-07-12 00:00:03,926 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-12 00:00:03,927 - __main__ - INFO - Session started at 2026-07-12 00:00:03.927133
+2026-07-12 00:00:04,074 - __main__ - INFO - Processing image generation prompt: how fast we can run things...
+2026-07-12 00:00:04,371 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-12 00:00:04,659 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-12 00:00:04,660 - __main__ - INFO - Session started at 2026-07-12 00:00:04.660275
+2026-07-12 00:00:04,668 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-12 00:00:04,669 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-12 00:00:14,321 - __main__ - INFO - Local LLM API call successful
+2026-07-12 00:00:14,321 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-12 00:01:22,358 - __main__ - INFO - Local LLM API with context call successful
+2026-07-12 00:01:22,519 - __main__ - INFO - Saving mask image data with ID: 7e5a0f71-7e5a-4461-a3c5-ae81d0f1bd1b
+2026-07-12 00:01:22,523 - __main__ - INFO - Mask image saved successfully
+2026-07-12 00:05:21,430 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-12 00:05:21,430 - __main__ - INFO - Session started at 2026-07-12 00:05:21.430632
+2026-07-12 00:05:21,589 - __main__ - INFO - Processing image generation prompt: are you running...
+2026-07-12 00:05:22,329 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-12 00:05:22,638 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-12 00:05:22,639 - __main__ - INFO - Session started at 2026-07-12 00:05:22.639065
+2026-07-12 00:05:22,647 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-12 00:05:22,647 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-12 00:05:32,629 - __main__ - INFO - Local LLM API call successful
+2026-07-12 00:05:32,630 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-12 00:05:44,453 - __main__ - INFO - Local LLM API with context call successful
+2026-07-12 00:05:44,652 - __main__ - INFO - Saving mask image data with ID: 7e5a0f71-7e5a-4461-a3c5-ae81d0f1bd1b
+2026-07-12 00:05:44,655 - __main__ - INFO - Mask image saved successfully
+2026-07-12 00:07:20,589 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-12 00:07:20,589 - __main__ - INFO - Session started at 2026-07-12 00:07:20.589856
+2026-07-12 00:07:24,093 - __main__ - INFO - Saving mask image data with ID: 7e5a0f71-7e5a-4461-a3c5-ae81d0f1bd1b
+2026-07-12 00:07:24,097 - __main__ - INFO - Mask image saved successfully
+2026-07-12 00:07:32,517 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-12 00:07:32,518 - __main__ - INFO - Session started at 2026-07-12 00:07:32.518001
+2026-07-12 00:07:35,490 - __main__ - INFO - Processing image generation prompt: explain image...
+2026-07-12 00:07:35,759 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-12 00:07:36,164 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-12 00:07:36,164 - __main__ - INFO - Session started at 2026-07-12 00:07:36.164926
+2026-07-12 00:07:36,173 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-12 00:07:36,173 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-12 00:08:50,681 - __main__ - INFO - Local LLM API call successful
+2026-07-12 00:09:14,320 - __main__ - INFO - Local LLM API with image understanding call successful
+2026-07-12 00:09:17,568 - __main__ - INFO - Saving mask image data with ID: 7e5a0f71-7e5a-4461-a3c5-ae81d0f1bd1b
+2026-07-12 00:09:17,570 - __main__ - INFO - Mask image saved successfully
+2026-07-14 07:56:57,932 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 07:56:57,937 - __main__ - INFO - Session started at 2026-07-14 07:56:57.937327
+2026-07-14 07:57:02,210 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 07:57:02,210 - __main__ - INFO - Session started at 2026-07-14 07:57:02.210801
+2026-07-14 07:57:02,590 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 07:57:02,591 - __main__ - INFO - Session started at 2026-07-14 07:57:02.591122
+2026-07-14 07:57:02,778 - __main__ - INFO - Loading SentenceTransformer model for text encoding
+2026-07-14 07:57:02,781 - sentence_transformers.base.model - INFO - No device provided, using cuda:0
+2026-07-14 07:57:03,406 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:03,407 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-14 07:57:03,424 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:03,687 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:03,708 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:03,721 - sentence_transformers.base.model - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-14 07:57:03,994 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:04,011 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:04,260 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:04,279 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-07-14 07:57:04,549 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:04,565 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:04,830 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:04,847 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:05,108 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-14 07:57:05,364 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:05,384 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:05,765 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-14 07:57:06,019 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-14 07:57:06,274 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-14 07:57:06,528 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-14 07:57:06,837 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:06,910 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:07,234 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:07,308 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:07,563 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:07,588 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:07,860 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:07,893 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:08,155 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-14 07:57:08,427 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-14 07:57:08,783 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-14 07:57:08,806 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-14 07:57:09,095 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-07-14 07:57:09,346 - __main__ - INFO - SentenceTransformer model loaded successfully
+2026-07-14 07:57:09,455 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 07:57:09,458 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:05:30,379 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:30,380 - __main__ - INFO - Session started at 2026-07-14 08:05:30.380226
+2026-07-14 08:05:30,426 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:05:30,429 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:05:35,784 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:35,785 - __main__ - INFO - Session started at 2026-07-14 08:05:35.785180
+2026-07-14 08:05:35,831 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:05:35,834 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:05:36,219 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:36,219 - __main__ - INFO - Session started at 2026-07-14 08:05:36.219768
+2026-07-14 08:05:36,392 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:05:36,394 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:05:36,967 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:36,968 - __main__ - INFO - Session started at 2026-07-14 08:05:36.968349
+2026-07-14 08:05:37,153 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:05:37,157 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:05:37,518 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:37,519 - __main__ - INFO - Session started at 2026-07-14 08:05:37.519076
+2026-07-14 08:05:37,678 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:05:37,682 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:05:38,125 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:38,126 - __main__ - INFO - Session started at 2026-07-14 08:05:38.126684
+2026-07-14 08:05:38,635 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:38,636 - __main__ - INFO - Session started at 2026-07-14 08:05:38.636356
+2026-07-14 08:05:39,038 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:39,038 - __main__ - INFO - Session started at 2026-07-14 08:05:39.038873
+2026-07-14 08:05:39,809 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:39,810 - __main__ - INFO - Session started at 2026-07-14 08:05:39.810735
+2026-07-14 08:05:40,242 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:40,243 - __main__ - INFO - Session started at 2026-07-14 08:05:40.243313
+2026-07-14 08:05:40,983 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:05:40,984 - __main__ - INFO - Session started at 2026-07-14 08:05:40.984358
+2026-07-14 08:05:41,147 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:05:41,149 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:07:12,149 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:12,149 - __main__ - INFO - Session started at 2026-07-14 08:07:12.149834
+2026-07-14 08:07:12,197 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:25,651 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:07:25,652 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:07:25,654 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:07:37,737 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:37,738 - __main__ - INFO - Session started at 2026-07-14 08:07:37.738410
+2026-07-14 08:07:37,880 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:37,956 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:37,956 - __main__ - INFO - Session started at 2026-07-14 08:07:37.956521
+2026-07-14 08:07:38,012 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:38,146 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:38,146 - __main__ - INFO - Session started at 2026-07-14 08:07:38.146638
+2026-07-14 08:07:38,190 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:38,366 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:38,367 - __main__ - INFO - Session started at 2026-07-14 08:07:38.367299
+2026-07-14 08:07:38,415 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:38,558 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:38,558 - __main__ - INFO - Session started at 2026-07-14 08:07:38.558961
+2026-07-14 08:07:38,607 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:39,083 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:39,084 - __main__ - INFO - Session started at 2026-07-14 08:07:39.084310
+2026-07-14 08:07:39,128 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:39,147 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:07:39,149 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:07:39,151 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:07:43,690 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:43,691 - __main__ - INFO - Session started at 2026-07-14 08:07:43.691147
+2026-07-14 08:07:43,847 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:43,851 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:43,851 - __main__ - INFO - Session started at 2026-07-14 08:07:43.851741
+2026-07-14 08:07:43,910 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:44,078 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:44,079 - __main__ - INFO - Session started at 2026-07-14 08:07:44.079663
+2026-07-14 08:07:44,136 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:46,405 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:07:46,405 - __main__ - INFO - Session started at 2026-07-14 08:07:46.405858
+2026-07-14 08:07:46,454 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:07:48,293 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:07:50,846 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:07:52,118 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:07:55,339 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:07:57,259 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:08:02,155 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:08:02,510 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:08:04,730 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:08:06,418 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:08:06,419 - __main__ - INFO - Saving mask image data with ID: 5d044f44-7b4a-4648-abb2-a7ec708f6933
+2026-07-14 08:08:06,421 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:09:35,528 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:35,528 - __main__ - INFO - Session started at 2026-07-14 08:09:35.528479
+2026-07-14 08:09:35,699 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:42,723 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:42,724 - __main__ - INFO - Session started at 2026-07-14 08:09:42.724500
+2026-07-14 08:09:42,770 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:42,922 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:42,923 - __main__ - INFO - Session started at 2026-07-14 08:09:42.923104
+2026-07-14 08:09:42,969 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:43,292 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:43,293 - __main__ - INFO - Session started at 2026-07-14 08:09:43.293007
+2026-07-14 08:09:43,338 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:43,610 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:43,611 - __main__ - INFO - Session started at 2026-07-14 08:09:43.611018
+2026-07-14 08:09:43,655 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:43,820 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:43,820 - __main__ - INFO - Session started at 2026-07-14 08:09:43.820574
+2026-07-14 08:09:43,864 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:44,095 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:44,095 - __main__ - INFO - Session started at 2026-07-14 08:09:44.095936
+2026-07-14 08:09:44,143 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:44,393 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:44,393 - __main__ - INFO - Session started at 2026-07-14 08:09:44.393498
+2026-07-14 08:09:44,440 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:45,875 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:45,876 - __main__ - INFO - Session started at 2026-07-14 08:09:45.876481
+2026-07-14 08:09:45,925 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:09:48,459 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:09:48,460 - __main__ - INFO - Session started at 2026-07-14 08:09:48.460285
+2026-07-14 08:09:48,509 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:11:00,600 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:11:00,601 - __main__ - INFO - Session started at 2026-07-14 08:11:00.601163
+2026-07-14 08:11:00,651 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:11:00,802 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:11:00,802 - __main__ - INFO - Session started at 2026-07-14 08:11:00.802484
+2026-07-14 08:11:00,847 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:11:00,903 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:11:00,903 - __main__ - INFO - Session started at 2026-07-14 08:11:00.903302
+2026-07-14 08:11:00,950 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:11:03,337 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:11:03,337 - __main__ - INFO - Session started at 2026-07-14 08:11:03.337742
+2026-07-14 08:11:03,382 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:11:55,808 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:12:00,720 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:12:44,173 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:12:44,174 - __main__ - INFO - Session started at 2026-07-14 08:12:44.174056
+2026-07-14 08:12:46,661 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:12:46,662 - __main__ - INFO - Session started at 2026-07-14 08:12:46.662010
+2026-07-14 08:12:47,023 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:12:47,023 - __main__ - INFO - Session started at 2026-07-14 08:12:47.023892
+2026-07-14 08:12:47,167 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:12:49,438 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:12:50,486 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:12:50,486 - __main__ - INFO - Session started at 2026-07-14 08:12:50.486743
+2026-07-14 08:12:50,657 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:12:50,773 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:12:50,773 - __main__ - INFO - Session started at 2026-07-14 08:12:50.773482
+2026-07-14 08:12:50,822 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:12:50,969 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:12:50,969 - __main__ - INFO - Session started at 2026-07-14 08:12:50.969720
+2026-07-14 08:12:51,017 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:12:51,148 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:12:51,148 - __main__ - INFO - Session started at 2026-07-14 08:12:51.148720
+2026-07-14 08:12:51,204 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:13:03,104 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:13:44,706 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:13:44,706 - __main__ - INFO - Session started at 2026-07-14 08:13:44.706970
+2026-07-14 08:13:44,755 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:30,639 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:30,640 - __main__ - INFO - Session started at 2026-07-14 08:14:30.640365
+2026-07-14 08:14:33,384 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:33,385 - __main__ - INFO - Session started at 2026-07-14 08:14:33.385263
+2026-07-14 08:14:33,799 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:33,800 - __main__ - INFO - Session started at 2026-07-14 08:14:33.800594
+2026-07-14 08:14:33,958 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:36,738 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:36,739 - __main__ - INFO - Session started at 2026-07-14 08:14:36.739031
+2026-07-14 08:14:36,790 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:36,836 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:36,836 - __main__ - INFO - Session started at 2026-07-14 08:14:36.836893
+2026-07-14 08:14:36,887 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:37,084 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:14:37,702 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:37,703 - __main__ - INFO - Session started at 2026-07-14 08:14:37.703194
+2026-07-14 08:14:37,871 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:37,888 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:37,889 - __main__ - INFO - Session started at 2026-07-14 08:14:37.889159
+2026-07-14 08:14:37,953 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:38,614 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:38,614 - __main__ - INFO - Session started at 2026-07-14 08:14:38.614597
+2026-07-14 08:14:38,671 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:38,723 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:38,723 - __main__ - INFO - Session started at 2026-07-14 08:14:38.723336
+2026-07-14 08:14:38,767 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:39,039 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:39,039 - __main__ - INFO - Session started at 2026-07-14 08:14:39.039494
+2026-07-14 08:14:39,088 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:39,124 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:39,125 - __main__ - INFO - Session started at 2026-07-14 08:14:39.125040
+2026-07-14 08:14:39,180 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:40,145 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:40,145 - __main__ - INFO - Session started at 2026-07-14 08:14:40.145462
+2026-07-14 08:14:40,194 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:14:40,369 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:14:40,369 - __main__ - INFO - Session started at 2026-07-14 08:14:40.369770
+2026-07-14 08:14:40,422 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:15:28,528 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:16:12,907 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:17:12,997 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:17:28,124 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:17:28,125 - __main__ - INFO - Session started at 2026-07-14 08:17:28.125574
+2026-07-14 08:17:30,681 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:17:30,682 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:17:31,088 - __main__ - INFO - Session started at 2026-07-14 08:17:31.088327
+2026-07-14 08:17:31,482 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:17:31,483 - __main__ - INFO - Session started at 2026-07-14 08:17:31.483390
+2026-07-14 08:17:31,646 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-14 08:17:55,792 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:17:59,679 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:18:13,059 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:13,060 - __main__ - INFO - Session started at 2026-07-14 08:18:13.060526
+2026-07-14 08:18:15,156 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:15,156 - __main__ - INFO - Session started at 2026-07-14 08:18:15.156863
+2026-07-14 08:18:15,550 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:15,551 - __main__ - INFO - Session started at 2026-07-14 08:18:15.551167
+2026-07-14 08:18:15,699 - __main__ - INFO - Saving mask image data with ID: 7c9e53a3-d0ef-4bc2-962a-f89a22572e0f
+2026-07-14 08:18:15,702 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:18:26,005 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:26,006 - __main__ - INFO - Session started at 2026-07-14 08:18:26.006003
+2026-07-14 08:18:26,937 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:26,937 - __main__ - INFO - Session started at 2026-07-14 08:18:26.937451
+2026-07-14 08:18:27,120 - __main__ - INFO - Saving mask image data with ID: 7c9e53a3-d0ef-4bc2-962a-f89a22572e0f
+2026-07-14 08:18:27,122 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:18:29,241 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:29,242 - __main__ - INFO - Session started at 2026-07-14 08:18:29.242304
+2026-07-14 08:18:29,426 - __main__ - INFO - Saving mask image data with ID: 7c9e53a3-d0ef-4bc2-962a-f89a22572e0f
+2026-07-14 08:18:29,428 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:18:29,813 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:29,813 - __main__ - INFO - Session started at 2026-07-14 08:18:29.813501
+2026-07-14 08:18:30,352 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:30,353 - __main__ - INFO - Session started at 2026-07-14 08:18:30.353057
+2026-07-14 08:18:35,753 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-14 08:18:35,753 - __main__ - INFO - Session started at 2026-07-14 08:18:35.753973
+2026-07-14 08:18:35,933 - __main__ - INFO - Saving mask image data with ID: 7c9e53a3-d0ef-4bc2-962a-f89a22572e0f
+2026-07-14 08:18:35,935 - __main__ - INFO - Mask image saved successfully
+2026-07-14 08:18:48,145 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:19:29,466 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:19:47,644 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:19:53,033 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:21:55,170 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:22:11,930 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:22:32,128 - __main__ - INFO - Local LLM API call successful
+2026-07-14 08:22:35,167 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:18:59,976 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:18:59,977 - __main__ - INFO - Session started at 2026-07-18 00:18:59.977523
+2026-07-18 00:19:03,103 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:19:03,104 - __main__ - INFO - Session started at 2026-07-18 00:19:03.104532
+2026-07-18 00:19:03,456 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:19:03,456 - __main__ - INFO - Session started at 2026-07-18 00:19:03.456876
+2026-07-18 00:19:03,616 - __main__ - INFO - Loading SentenceTransformer model for text encoding
+2026-07-18 00:19:03,620 - sentence_transformers.base.model - INFO - No device provided, using cuda:0
+2026-07-18 00:19:04,213 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:04,214 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-18 00:19:04,229 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:04,468 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:04,990 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:05,004 - sentence_transformers.base.model - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-18 00:19:05,232 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:05,246 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:05,477 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:05,498 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-07-18 00:19:05,765 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:05,778 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:06,020 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:06,035 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:06,281 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:19:06,518 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:06,529 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:06,900 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:19:07,128 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:19:07,362 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:19:07,590 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:19:07,822 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:07,833 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:08,076 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:08,088 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:08,340 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:08,353 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:08,588 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:08,835 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:09,072 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-18 00:19:09,309 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-18 00:19:09,626 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:19:09,644 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-18 00:19:09,901 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-07-18 00:19:10,203 - __main__ - INFO - SentenceTransformer model loaded successfully
+2026-07-18 00:19:10,295 - __main__ - INFO - Saving mask image data with ID: 12626103-627c-49d0-8e00-41f0697e0986
+2026-07-18 00:19:10,297 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:19:14,179 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:19:14,180 - __main__ - INFO - Session started at 2026-07-18 00:19:14.179997
+2026-07-18 00:19:15,950 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:19:15,951 - __main__ - INFO - Session started at 2026-07-18 00:19:15.951443
+2026-07-18 00:19:16,308 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:19:16,309 - __main__ - INFO - Session started at 2026-07-18 00:19:16.309411
+2026-07-18 00:19:16,430 - __main__ - INFO - Saving mask image data with ID: 06e9787b-09bb-4ccb-9d6d-a6a71ad6615e
+2026-07-18 00:19:16,432 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:20:56,796 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:20:56,797 - __main__ - INFO - Session started at 2026-07-18 00:20:56.797353
+2026-07-18 00:20:56,973 - __main__ - INFO - Saving mask image data with ID: 12626103-627c-49d0-8e00-41f0697e0986
+2026-07-18 00:20:56,976 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:20:57,344 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:20:57,344 - __main__ - INFO - Session started at 2026-07-18 00:20:57.344792
+2026-07-18 00:20:58,353 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:20:58,354 - __main__ - INFO - Session started at 2026-07-18 00:20:58.354278
+2026-07-18 00:20:58,540 - __main__ - INFO - Saving mask image data with ID: 12626103-627c-49d0-8e00-41f0697e0986
+2026-07-18 00:20:58,544 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:21:01,956 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:21:01,956 - __main__ - INFO - Session started at 2026-07-18 00:21:01.956941
+2026-07-18 00:21:02,137 - __main__ - INFO - Processing image generation prompt: hi...
+2026-07-18 00:21:05,404 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-18 00:21:05,768 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:21:05,768 - __main__ - INFO - Session started at 2026-07-18 00:21:05.768805
+2026-07-18 00:21:05,779 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:21:05,780 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:21:19,546 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:21:19,547 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-18 00:21:33,105 - __main__ - INFO - Local LLM API with context call successful
+2026-07-18 00:21:33,111 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:21:33,112 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:21:45,218 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:21:45,219 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-18 00:21:49,604 - __main__ - INFO - Local LLM API with context call successful
+2026-07-18 00:21:49,655 - __main__ - INFO - Saving mask image data with ID: 12626103-627c-49d0-8e00-41f0697e0986
+2026-07-18 00:21:49,657 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:26:28,820 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:26:28,821 - __main__ - INFO - Session started at 2026-07-18 00:26:28.821214
+2026-07-18 00:26:33,092 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:26:33,093 - __main__ - INFO - Session started at 2026-07-18 00:26:33.093021
+2026-07-18 00:26:33,513 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:26:33,513 - __main__ - INFO - Session started at 2026-07-18 00:26:33.513973
+2026-07-18 00:26:33,687 - __main__ - INFO - Loading SentenceTransformer model for text encoding
+2026-07-18 00:26:33,692 - sentence_transformers.base.model - INFO - No device provided, using cuda:0
+2026-07-18 00:26:34,410 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:34,424 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:34,660 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:34,675 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:34,678 - sentence_transformers.base.model - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-18 00:26:34,962 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:34,963 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-18 00:26:34,978 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:35,211 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:35,775 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-07-18 00:26:36,013 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:36,026 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:36,277 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:36,877 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:37,110 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:26:37,339 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:37,590 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:37,913 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:26:38,148 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:26:38,385 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:26:38,618 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:26:38,851 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:39,100 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:39,850 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:39,864 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:40,104 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:40,116 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:44,490 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:44,507 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:45,210 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-18 00:26:45,445 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-18 00:26:45,743 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:26:45,761 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-18 00:26:45,998 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-07-18 00:26:46,316 - __main__ - INFO - SentenceTransformer model loaded successfully
+2026-07-18 00:26:46,419 - __main__ - INFO - Saving mask image data with ID: dbc75688-fdb5-4043-a708-8c7a6f319935
+2026-07-18 00:26:46,421 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:26:53,740 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:26:53,741 - __main__ - INFO - Session started at 2026-07-18 00:26:53.741183
+2026-07-18 00:26:53,796 - __main__ - INFO - Processing image generation prompt: hi...
+2026-07-18 00:26:55,837 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-18 00:26:56,201 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:26:56,201 - __main__ - INFO - Session started at 2026-07-18 00:26:56.201810
+2026-07-18 00:26:56,211 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:26:56,211 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:27:04,878 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:27:04,878 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-18 00:27:09,212 - __main__ - INFO - Local LLM API with context call successful
+2026-07-18 00:27:09,235 - __main__ - INFO - Saving mask image data with ID: dbc75688-fdb5-4043-a708-8c7a6f319935
+2026-07-18 00:27:09,236 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:27:16,520 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:27:16,520 - __main__ - INFO - Session started at 2026-07-18 00:27:16.520894
+2026-07-18 00:27:16,673 - __main__ - INFO - Processing image generation prompt: is this working...
+2026-07-18 00:27:16,946 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-18 00:27:17,287 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:27:17,288 - __main__ - INFO - Session started at 2026-07-18 00:27:17.288162
+2026-07-18 00:27:17,300 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:27:17,300 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:27:25,343 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:27:25,343 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-18 00:27:33,661 - __main__ - INFO - Local LLM API with context call successful
+2026-07-18 00:27:33,813 - __main__ - INFO - Saving mask image data with ID: dbc75688-fdb5-4043-a708-8c7a6f319935
+2026-07-18 00:27:33,816 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:27:46,477 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:27:46,477 - __main__ - INFO - Session started at 2026-07-18 00:27:46.477900
+2026-07-18 00:27:46,644 - __main__ - INFO - Processing image generation prompt: my name is mayank...
+2026-07-18 00:27:46,927 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-18 00:27:47,247 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:27:47,247 - __main__ - INFO - Session started at 2026-07-18 00:27:47.247787
+2026-07-18 00:27:47,259 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:27:47,259 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:27:57,185 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:27:57,186 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-18 00:28:03,454 - __main__ - INFO - Local LLM API with context call successful
+2026-07-18 00:28:03,615 - __main__ - INFO - Saving mask image data with ID: dbc75688-fdb5-4043-a708-8c7a6f319935
+2026-07-18 00:28:03,617 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:28:21,461 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:28:21,461 - __main__ - INFO - Session started at 2026-07-18 00:28:21.461957
+2026-07-18 00:28:21,617 - __main__ - INFO - Processing image generation prompt: what you can if you have to give me nick name...
+2026-07-18 00:28:21,876 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-18 00:28:22,226 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:28:22,227 - __main__ - INFO - Session started at 2026-07-18 00:28:22.227198
+2026-07-18 00:28:22,236 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:28:22,236 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:28:31,842 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:28:31,843 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-18 00:28:49,374 - __main__ - INFO - Local LLM API with context call successful
+2026-07-18 00:28:49,551 - __main__ - INFO - Saving mask image data with ID: dbc75688-fdb5-4043-a708-8c7a6f319935
+2026-07-18 00:28:49,554 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:29:16,175 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:29:16,176 - __main__ - INFO - Session started at 2026-07-18 00:29:16.176369
+2026-07-18 00:29:16,335 - __main__ - INFO - Processing image generation prompt: then call me with my nick name only...
+2026-07-18 00:29:16,551 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-18 00:29:16,865 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:29:16,866 - __main__ - INFO - Session started at 2026-07-18 00:29:16.866272
+2026-07-18 00:29:16,874 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:29:16,874 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:29:55,244 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:29:55,245 - __main__ - INFO - Calling local LLM API with context memory
+2026-07-18 00:31:42,885 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:31:42,886 - __main__ - INFO - Session started at 2026-07-18 00:31:42.886221
+2026-07-18 00:31:45,650 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:31:45,650 - __main__ - INFO - Session started at 2026-07-18 00:31:45.650544
+2026-07-18 00:31:46,066 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:31:46,067 - __main__ - INFO - Session started at 2026-07-18 00:31:46.067101
+2026-07-18 00:31:46,239 - __main__ - INFO - Saving mask image data with ID: 9c8c15d9-9451-454d-8c82-f2b061bebb61
+2026-07-18 00:31:46,242 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:32:08,142 - __main__ - INFO - Local LLM API with context call successful
+2026-07-18 00:33:57,986 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:33:57,987 - __main__ - INFO - Session started at 2026-07-18 00:33:57.987338
+2026-07-18 00:34:01,528 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:34:01,529 - __main__ - INFO - Session started at 2026-07-18 00:34:01.529311
+2026-07-18 00:34:01,894 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:34:01,894 - __main__ - INFO - Session started at 2026-07-18 00:34:01.894638
+2026-07-18 00:34:02,035 - __main__ - INFO - Loading SentenceTransformer model for text encoding
+2026-07-18 00:34:02,039 - sentence_transformers.base.model - INFO - No device provided, using cuda:0
+2026-07-18 00:34:02,798 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:02,822 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:03,657 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:03,673 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:03,675 - sentence_transformers.base.model - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-18 00:34:03,912 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:03,946 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:04,197 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:04,198 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-18 00:34:04,213 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-07-18 00:34:04,452 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:04,468 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:04,696 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:04,708 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:05,164 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:34:05,408 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:05,992 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:06,300 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:34:06,527 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:34:06,755 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:34:06,992 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:34:07,235 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:07,253 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:07,478 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:07,493 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:07,738 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:07,760 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:07,997 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:08,010 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:08,255 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-18 00:34:08,509 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-18 00:34:08,790 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:34:08,803 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-18 00:34:09,044 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-07-18 00:34:09,228 - __main__ - INFO - SentenceTransformer model loaded successfully
+2026-07-18 00:34:09,321 - __main__ - INFO - Saving mask image data with ID: bec86c62-7b45-4eda-9782-0cd684e0a10d
+2026-07-18 00:34:09,323 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:38:38,072 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:38:38,342 - __main__ - INFO - Session started at 2026-07-18 00:38:38.342565
+2026-07-18 00:38:41,868 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:38:41,868 - __main__ - INFO - Session started at 2026-07-18 00:38:41.868832
+2026-07-18 00:38:42,269 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:38:42,270 - __main__ - INFO - Session started at 2026-07-18 00:38:42.270034
+2026-07-18 00:38:42,406 - __main__ - INFO - Loading SentenceTransformer model for text encoding
+2026-07-18 00:38:42,411 - sentence_transformers.base.model - INFO - No device provided, using cuda:0
+2026-07-18 00:38:43,081 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:43,082 - huggingface_hub.utils._http - WARNING - Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-18 00:38:43,097 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:43,328 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:43,345 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:43,347 - sentence_transformers.base.model - INFO - Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+2026-07-18 00:38:43,574 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:44,425 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:44,655 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:44,669 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md "HTTP/1.1 200 OK"
+2026-07-18 00:38:44,897 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:44,912 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/modules.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:45,150 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:45,164 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:45,398 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:38:45,860 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:45,874 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:46,171 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:38:46,409 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:38:46,638 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:38:46,868 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-07-18 00:38:47,100 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:47,116 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:47,348 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:47,364 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:47,616 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:47,632 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/config.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:47,874 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:47,888 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:48,126 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-18 00:38:48,355 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-18 00:38:48,635 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-18 00:38:48,653 - httpx - INFO - HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-07-18 00:38:48,888 - httpx - INFO - HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2 "HTTP/1.1 200 OK"
+2026-07-18 00:38:49,071 - __main__ - INFO - SentenceTransformer model loaded successfully
+2026-07-18 00:38:49,139 - __main__ - INFO - Saving mask image data with ID: c86bd636-5c59-4644-8947-e9d65dd9ab19
+2026-07-18 00:38:49,142 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:41:49,360 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:41:49,361 - __main__ - INFO - Session started at 2026-07-18 00:41:49.361437
+2026-07-18 00:41:51,412 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:41:51,412 - __main__ - INFO - Session started at 2026-07-18 00:41:51.412853
+2026-07-18 00:41:51,767 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:41:51,768 - __main__ - INFO - Session started at 2026-07-18 00:41:51.768406
+2026-07-18 00:41:51,917 - __main__ - INFO - Saving mask image data with ID: 94417716-03cb-48ac-a4f3-b6a5f66e7e53
+2026-07-18 00:41:51,921 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:44:10,991 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:10,991 - __main__ - INFO - Session started at 2026-07-18 00:44:10.991816
+2026-07-18 00:44:13,958 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:13,958 - __main__ - INFO - Session started at 2026-07-18 00:44:13.958536
+2026-07-18 00:44:14,352 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:14,352 - __main__ - INFO - Session started at 2026-07-18 00:44:14.352463
+2026-07-18 00:44:14,507 - __main__ - INFO - Saving mask image data with ID: e0ceb93d-b424-461e-8542-dfafc5ce6636
+2026-07-18 00:44:14,509 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:44:39,710 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:39,711 - __main__ - INFO - Session started at 2026-07-18 00:44:39.711197
+2026-07-18 00:44:41,858 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:41,859 - __main__ - INFO - Session started at 2026-07-18 00:44:41.859192
+2026-07-18 00:44:42,219 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:42,219 - __main__ - INFO - Session started at 2026-07-18 00:44:42.219770
+2026-07-18 00:44:42,358 - __main__ - INFO - Saving mask image data with ID: bc139c19-8eb7-4db9-9b34-8b068ce60827
+2026-07-18 00:44:42,364 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:44:51,284 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:51,285 - __main__ - INFO - Session started at 2026-07-18 00:44:51.285445
+2026-07-18 00:44:53,424 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:53,424 - __main__ - INFO - Session started at 2026-07-18 00:44:53.424896
+2026-07-18 00:44:53,790 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:44:53,790 - __main__ - INFO - Session started at 2026-07-18 00:44:53.790768
+2026-07-18 00:44:53,933 - __main__ - INFO - Saving mask image data with ID: 974fe35f-a278-4602-8040-edb731dbcd7e
+2026-07-18 00:44:53,938 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:45:13,110 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:45:13,110 - __main__ - INFO - Session started at 2026-07-18 00:45:13.110619
+2026-07-18 00:45:16,260 - __main__ - INFO - Saving mask image data with ID: 974fe35f-a278-4602-8040-edb731dbcd7e
+2026-07-18 00:45:16,264 - __main__ - INFO - Mask image saved successfully
+2026-07-18 00:45:22,256 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:45:22,257 - __main__ - INFO - Session started at 2026-07-18 00:45:22.257289
+2026-07-18 00:45:25,873 - __main__ - INFO - Processing image generation prompt: explain the image...
+2026-07-18 00:45:27,705 - __main__ - INFO - Model output classification: LABEL_1
+2026-07-18 00:45:28,096 - __main__ - INFO - === Streamlit Generative Studio App Started ===
+2026-07-18 00:45:28,097 - __main__ - INFO - Session started at 2026-07-18 00:45:28.097150
+2026-07-18 00:45:28,102 - __main__ - INFO - Consuming LLM API context for prompt with 2 components
+2026-07-18 00:45:28,102 - __main__ - INFO - Calling local LLM API at http://127.0.0.1:6000/api/llm-response
+2026-07-18 00:45:40,386 - __main__ - INFO - Local LLM API call successful
+2026-07-18 00:46:02,602 - __main__ - INFO - Local LLM API with image understanding call successful
+2026-07-18 00:46:05,609 - __main__ - INFO - Saving mask image data with ID: 974fe35f-a278-4602-8040-edb731dbcd7e
+2026-07-18 00:46:05,613 - __main__ - INFO - Mask image saved successfully

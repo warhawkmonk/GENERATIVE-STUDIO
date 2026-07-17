@@ -3,6 +3,7 @@ from PIL import Image
 import re
 import streamlit as st
 import cv2
+from st_keyup import st_keyup
 from groq import Groq
 import io
 from streamlit_drawable_canvas import st_canvas
@@ -1002,7 +1003,7 @@ with st.spinner('Wait for it...'):
 with column1:
     # prompt=st.text_area("Please provide the prompt")
     prompt=st.chat_input("Please provide the prompt")
-   
+    # st.write(consume_llm_api(dynamic_prompt+"\nComplete the expected prompt"))
     negative_prompt="the black masked area"
 
     # run=st.button("run_experiment")
