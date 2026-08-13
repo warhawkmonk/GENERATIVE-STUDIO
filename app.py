@@ -534,7 +534,7 @@ with column2:
                             data_need=""
                             while(len(data_need)==0):
                                 if len(prompts_)==3:
-                                    with st.spinner("Wait for it..."):
+                                    with st.spinner("Thinking..."):
                                         logger.info("Consuming LLM API context for prompt with 3 components")
                                         
                                         image_understanding = prompt_understanding(prompts_[1])
@@ -545,7 +545,7 @@ with column2:
                                             data_need = consume_llm_api_context(prompts_[1],session_load(dictionary))
                                         st.write(data_need)
                                 else:
-                                    with st.spinner("Wait for it..."):
+                                    with st.spinner("Thinking..."):
                                         logger.info("Consuming LLM API context for prompt with 2 components")
                                     
                                         image_understanding = prompt_understanding(prompts_[0])
