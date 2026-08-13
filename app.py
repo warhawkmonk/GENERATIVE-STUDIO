@@ -229,8 +229,8 @@ def consume_llm_api(prompt,messages=None):
     """
     Sends a prompt to the LLM API and processes the streamed response.
     """
-    logger.info("Calling local LLM API at http://127.0.0.1:6000/api/llm-response")
-    url = "http://127.0.0.1:6000/api/llm-response"
+    logger.info("Calling local LLM API at https://www.aatu-zhaatu.xyz/api/llm-response")
+    url = "https://www.aatu-zhaatu.xyz/api/llm-response"
     headers = {"Content-Type": "application/json"}
     payload = {"prompt": prompt,"extension":"hi"}
 
@@ -250,7 +250,7 @@ def consume_llm_api_context(prompt, memory):
     Sends a prompt to the LLM API and processes the streamed response.
     """
     logger.info("Calling local LLM API with context memory")
-    url = "http://127.0.0.1:6000/api/llm-response"
+    url = "https://www.aatu-zhaatu.xyz/api/llm-response"
     headers = {"Content-Type": "application/json"}
     payload = {"prompt": prompt, "generative_studio": memory}
 
@@ -308,7 +308,7 @@ def refer_api(prompt):
 
     init_image = [[1,1,1]*1000]*1000
     mask_image = [[True]*1000]*1000
-    API_URL = "http://127.0.0.1:6000/api/llm-response"
+    API_URL = "https://www.aatu-zhaatu.xyz/api/llm-response"
     initial_image_base64 = numpy_to_list(np.array(init_image))
     mask_image_base64 = numpy_to_list(np.array(mask_image))
     payload = {
@@ -332,7 +332,7 @@ def model_out_put(init_image,mask_image,prompt,negative_prompt):
         l,m=np.array(mask_image).shape
         image =refer_api(prompt).resize((l,m))
         return image
-    API_URL = "http://127.0.0.1:6000/api/llm-response"
+    API_URL = "https://www.aatu-zhaatu.xyz/api/llm-response"
     initial_image_base64 = numpy_to_list(np.array(init_image))
     mask_image_base64 = numpy_to_list(np.array(mask_image))
     payload = {
@@ -396,7 +396,7 @@ def pil_image_to_base64(image, format="JPEG"):
     return base64_string
 def image_understanding_result(memory,prompt,uploaded=None):
 
-    url = "http://127.0.0.1:6000/api/llm-response"
+    url = "https://www.aatu-zhaatu.xyz/api/llm-response"
     headers = {"Content-Type": "application/json"}
     if uploaded :
         base64_str = pil_image_to_base64(uploaded, format="JPEG")
